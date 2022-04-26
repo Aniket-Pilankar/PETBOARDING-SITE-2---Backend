@@ -1,7 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express();
-const port = process.env.PORT || 5005;
+// const port = process.env.PORT || 5005;
 const cors = require('cors');
 app.use(express.json())
 app.use(cors())
@@ -16,11 +16,11 @@ app.use('/petServiceInfo',petServiceInfoController)
 app.post('/register',register)
 app.post('/login',login)
 
-app.listen(port, async() => {
+app.listen(process.env.PORT || 5005, async() => {
     try {
 
         await connect()
-        console.log(`listing to the port ${port}`)
+        console.log(`listing to the port 5005`)
     } catch (error) {
         console.log('error:', error)
         
